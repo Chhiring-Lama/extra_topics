@@ -1,0 +1,65 @@
+---
+title: "Bonus"
+author: "Chhiring Lama, Kate Colvin, Yuying Lu"
+date: "2024-12-03"
+output: html_document
+---
+
+```{r setup, include=FALSE, message = FALSE}
+library(tidyverse)
+library(here)
+
+knitr::opts_chunk$set(
+	echo = TRUE,
+	warning = FALSE,
+	fig.width = 8, 
+  fig.height = 6,
+  out.width = "85%", 
+	fig.align = "center"
+)
+
+theme_set(theme_minimal() + theme(legend.position = "bottom"))
+
+scale_colour_discrete = scale_colour_viridis_d
+scale_fill_discrete = scale_fill_viridis_d
+
+set.seed(1)
+```
+
+Using `here` to import files
+```{r}
+a <- data <- read_csv(here("~/Library/CloudStorage/OneDrive-ColumbiaUniversityIrvingMedicalCenter/Course Materials/Fall 2024/Data Science 1/20241107_linear_models/data/", "nepalese_children.csv"))
+```
+
+
+
+Using regression
+```{r}
+data("mtcars")
+
+with(mtcars, t.test(mpg[ am == 0], mpg[am ==1])) |> 
+  broom::tidy()
+
+t.test(mpg ~ am, data = mtcars) |> 
+  broom::tidy()
+
+lm(mpg ~ am, data = mtcars) |> 
+  broom::tidy()
+```
+
+Plot using the relationship between am and mpg
+```{r}
+ggplot(aes(group = am, y = mpg), data = mtcars) +
+  geom_boxplot()
+```
+
+
+Some LLMs that to consider (not the most intuitive on a day to day basis, need to double check )
+
+- Github Copilot: https://copilot.github.com/. What does Copilot do? "It helps you write code faster and with fewer errors. It draws context from the code you’re working on, suggesting whole lines or entire functions. It’s a great tool for pair programming, code reviews, and writing code faster." written by copilot
+
+- chatgpt: "https://chat.openai.com/. What does ChatGPT do? "ChatGPT is a large language model trained to generate human-like responses to given prompts. It can be used for a variety of tasks, such as generating conversational responses, answering questions, and providing recommendations." written by chatgpt". 
+
+
+
+
