@@ -26,6 +26,15 @@ scale_fill_discrete = scale_fill_viridis_d
 set.seed(1)
 ```
 
+Using `projectr`:
+```{r}
+#devtools::install_github("jeff-goldsmith/projectr")
+library(projectr)
+#projectr::proj_start(proj_dir = "~/Work/temp_project", 
+  #                   data_dir = "~/Data/temp_data")
+```
+
+
 Using `here` to import files
 ```{r}
 a <- data <- read_csv(here("~/Library/CloudStorage/OneDrive-ColumbiaUniversityIrvingMedicalCenter/Course Materials/Fall 2024/Data Science 1/20241107_linear_models/data/", "nepalese_children.csv"))
